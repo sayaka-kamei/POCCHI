@@ -64,5 +64,23 @@ td {
 label {
   display: block; }
 
+ul {
+  margin: auto;
+  width: 300px;
+  margin-bottom: 20px;
+  background-color: bisque;
+}
+
 li::marker {
   color: #fff; }
+
+.text_left {
+  text-align: left;
+}
+
+.notice {
+  margin: auto;
+  width: 300px;
+  margin-bottom: 20px;
+  background-color: bisque;
+}
