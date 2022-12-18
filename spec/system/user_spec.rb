@@ -35,16 +35,16 @@ RSpec.describe 'ユーザー管理機能', type: :system do
         it 'ログインができる' do
           expect(page).to have_content 'ユーザー情報'
         end
-        it 'グループ作成に移管する' do
+        it 'グループ作成画面に移管できる' do
           visit new_group_path
           expect(page).to have_content 'グループ作成'
         end
-        it '今日のPOCCHIに遷移する' do
+        it '今日のPOCCHIに遷移できる' do
           FactoryBot.create(:quiz)
           visit new_answer_path
           expect(page).to have_content '今日'
         end  
-        it 'みんなのPOCCHIに遷移する' do
+        it 'みんなのPOCCHIに遷移できる' do
           visit answers_path
           expect(page).to have_content 'みんな'
         end
@@ -63,41 +63,31 @@ RSpec.describe 'ユーザー管理機能', type: :system do
           fill_in "user[password]", with: 'password1'
           click_on "ログインする"
           visit quizzes_path
-          expect(page).to have_content '新規作成'
+          expect(page).to have_content '質問一覧'
         end
       end
       context '一般ユーザがログインした場合' do
+        let!(:second_user){FactoryBot.create(:second_user)}
         it '質問一覧にアクセスできない' do
-          FactoryBot.create(:second_user)
           visit new_user_session_path
-          fill_in "user[email]", with: user.email
-          fill_in "user[password]", with: user.password
+          fill_in "user[email]", with: second_user.email
+          fill_in "user[password]", with: second_user.password
           click_on "ログインする"
           visit quizzes_path
-          expect(page).to have_content 'ログイン'
+          expect(current_path).to eq root_path
         end
       end
       describe '管理画面機能' do
+        let!(:user){FactoryBot.create(:user)}
+        let!(:second_user){FactoryBot.create(:second_user)}
         context '管理ユーザがログインした場合' do
           it '管理画面にアクセスできる' do
-            FactoryBot.create(:user)
             visit new_user_session_path
             fill_in "user[email]", with: user.email
             fill_in "user[password]", with: user.password
             click_on "ログインする"
             click_on '管理者画面'
             expect(page).to have_content 'サイト管理'
-          end
-        end
-        context '一般ユーザがログインした場合' do
-          it '管理画面にアクセスできない' do
-            FactoryBot.create(:second_user)
-            visit new_user_session_path
-            fill_in "user[email]", with: user.email
-            fill_in "user[password]", with: user.password
-            click_on "ログインする"
-            visit admin_path
-            expect(page).to have_content 'ログイン'
           end
         end
       end  
