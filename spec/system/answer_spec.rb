@@ -9,17 +9,18 @@ RSpec.describe 'アンサー管理機能', type: :system do
           fill_in "user[email]", with: user.email
           fill_in "user[password]", with: user.password
           click_on "ログインする"
-          visit new_group_path
-          fill_in "group[name]", with: "test_group"
-          click_on "登録する"
-          visit new_quiz_path
+          click_on "質問一覧"
+          find('#rspec1').click
           fill_in "quiz[title]", with: "元気ですか〜？"
-          fill_in "quiz[image]", with: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/factories/images/pocchi1.png'))
-          select "2022/12/18", from: "request_answer_on"
+          attach_file "quiz[image]", File.join(Rails.root, 'spec/factories/images/pocchi1.png')
+          sleep(1)
+          fill_in "quiz[request_answer_on]",  with: Date.new(2022, 12, 1)
           click_on "登録する"
+          sleep(1)
+          click_on "今日のPOCCHI"
           select "test_group",from: "answer[group_id]"
           find('label[for=A]').click
-          visit answer_path
+          click_on "今日の解答する"
           expect(page).to have_content 'メールしました'
         end
       end
@@ -32,18 +33,18 @@ RSpec.describe 'アンサー管理機能', type: :system do
           fill_in "user[email]", with: user.email
           fill_in "user[password]", with: user.password
           click_on "ログインする"
-          visit new_group_path
-          fill_in "group[name]", with: "test_group"
-          click_on "登録する"
-          visit new_quiz_path
+          click_on "質問一覧"
+          find('#rspec1').click
           fill_in "quiz[title]", with: "元気ですか〜？"
-          fill_in "quiz[image]", with: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/factories/images/pocchi1.png'))
-          select "2022/12/18", from: "request_answer_on"
+          attach_file "quiz[image]", File.join(Rails.root, 'spec/factories/images/pocchi1.png')
+          sleep(1)
+          fill_in "quiz[request_answer_on]",  with: Date.new(2022, 12, 1)
           click_on "登録する"
+          sleep(1)
+          click_on "今日のPOCCHI"
           select "test_group",from: "answer[group_id]"
           find('label[for=A]').click
-          visit answer_path
-          click_on "解答する"
+          click_on "今日の解答する"
           click_on "一覧へもどる"
           expect(page).to have_content '元気ですか〜？'
         end
