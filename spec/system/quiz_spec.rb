@@ -14,7 +14,7 @@ RSpec.describe 'クイズ管理機能', type: :system do
           fill_in "quiz[title]", with: "元気ですか〜？"
           attach_file "quiz[image]", File.join(Rails.root, 'spec/factories/images/pocchi1.png')
           sleep(1)
-          fill_in "quiz[request_answer_on]",  with: Date.new(2022, 12, 1)
+          fill_in "quiz[request_answer_on]",  with: Date.current
           click_on "登録する"
           sleep(1)
           expect(page).to have_content '作成しました'
@@ -33,10 +33,10 @@ RSpec.describe 'クイズ管理機能', type: :system do
           fill_in "quiz[title]", with: "元気ですか〜？"
           attach_file "quiz[image]", File.join(Rails.root, 'spec/factories/images/pocchi1.png')
           sleep(1)
-          fill_in "quiz[request_answer_on]",  with: Date.new(2022, 12, 1)
+          fill_in "quiz[request_answer_on]",  with: Date.current
           click_on "登録する"
           sleep(1)
-          click_on "一覧へもどる"
+          find('#rspec3').click
           expect(page).to have_content '元気ですか〜？'
         end
       end
