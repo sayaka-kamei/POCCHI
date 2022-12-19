@@ -21,6 +21,8 @@ module POCCHI
     config.i18n.default_locale = :ja
     config.time_zone = 'Asia/Tokyo'
 
+    config.paths.add 'lib', eager_load: true
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
