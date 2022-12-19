@@ -29,6 +29,8 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'unicorn'
 
+gem 'spring'
+
 group :development, :test do
   gem 'capistrano', '3.16.0' 
   gem 'capistrano-rails'
@@ -37,8 +39,7 @@ group :development, :test do
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry-rails'
-  gem 'spring' 
+  gem 'pry-rails' 
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
