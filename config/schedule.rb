@@ -11,7 +11,7 @@ set :output, './log/cron.log'
 require File.expand_path(File.dirname(__FILE__) + '/environment')
 set :path_env, ENV['PATH']
 rails_env = ENV['RAILS_ENV'] || :development
-set :environment, rails_env
+set :environment, :production
 job_type :rake,   "cd :path && PATH=':path_env' :environment_variable=:environment bundle exec rake :task --silent :output"
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
