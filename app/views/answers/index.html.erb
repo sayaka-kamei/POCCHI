@@ -12,7 +12,8 @@
   <table class="table table-hover table-bordered" style="padding-top: 2rem">    
     <tr>
       <th>グループ名</th>
-      <th>POCCHI質問</th>
+      <th>POCCHI質問文</th>
+      <th>質問内容</th>
       <th>解答者</th>
       <th>解答</th>
       <th>解答した日時</th>
@@ -25,6 +26,7 @@
       <tr>
         <td><%= Group.find(answer.group_id).name %></td>
         <td><%= Quiz.find(answer.quiz_id).title %></td>
+        <td><%= image_tag Quiz.find(answer.quiz_id).image.url, :size =>'40x30' %></td>
         <td><%= User.find(answer.user_id).name %>さん</td>
         <td><%= answer.select_answer %></td>
         <td><%= l answer.created_at, format: :short  %></td>
