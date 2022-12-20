@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV['DB_USERNAME']
+  default from: "POCCHI事務局"
   layout 'mailer'
 end
