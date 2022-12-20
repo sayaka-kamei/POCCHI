@@ -18,6 +18,7 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @today_quiz = Quiz.find_by(request_answer_on: Date.current) 
   end
 
   def create
