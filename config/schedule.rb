@@ -25,7 +25,7 @@ every 1.days, at: '11:30 am' do
 end
 # end
 
-# every 1.minutes do
-#   rake 'daily_guidance:mail_daily_guidance'
-# end
+every 3.minutes do
+  rake 'daily_guidance:mail_daily_guidance'
+end
 # Learn more: http://github.com/javan/whenever

@@ -6,6 +6,6 @@ class DailyMailer < ApplicationMailer
   #   en.daily_mailer.daily_notification.subject
   #
   def daily_notification
-    mail to: User.pluck(:email), subject: "本日のPOCCHIご案内"
+    mail bcc: User.pluck(:email), subject: "本日のPOCCHIご案内"
   end
 end

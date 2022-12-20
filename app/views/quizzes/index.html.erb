@@ -7,6 +7,7 @@
   <thead>
     <tr>
       <th><div class="text-center">問題文</div></th>
+      <th><div class="text-center">質問内容</div></th>
       <th><div class="text-center">作成日</div></th>
       <th><div class="text-center">出題予定日</div></th>
       <th colspan="3"></th>
@@ -19,6 +20,7 @@
       <tr>
         <div class="contents-title text-center">
         <td><%= quiz.title %></td>
+        <td><%= image_tag quiz.image.url, :size =>'40x30' %></td>
         <td><%= quiz.created_at %></td>
         <td><%= quiz.request_answer_on %></td>
         <td><%= link_to '詳細', quiz %></td>
