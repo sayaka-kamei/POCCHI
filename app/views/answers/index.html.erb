@@ -31,8 +31,7 @@
         <td><%= answer.select_answer %></td>
         <td><%= l answer.created_at, format: :short  %></td>
         <td><%= link_to '詳細', answer %></td>
-        <td><%= link_to '編集', edit_answer_path(answer) %></td data: { confirm: '削除して良いですか?' } >
-        <td><%= link_to '削除', answer, method: :delete%></td>
+        <td><%= link_to '削除', answer, method: :delete%></td data: { confirm: '削除して良いですか?' } >
       </tr>
     <% end %>
   </tbody>
