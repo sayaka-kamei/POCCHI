@@ -6,56 +6,74 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 @user1 = User.create!(
-  name: "admin",
+  name: "サザエ",
   gender: "女性",
   age: "1980",
-  email: "admin1@example.com",
+  email: "sazae@sazaesan.com",
   password: "password",
   admin: true
 )
 
 @user2 = User.create!(
-  name: "user2",
+  name: "タラオ",
   gender: "男性",
   age: "2002",
-  email: "user2@example.com",
+  email: "tarao@sazaesan.com",
   password: "password",
   admin: false
 )
 
 @user3 = User.create!(
-  name: 'user3',
+  name: 'ふね',
   gender: '女性',
   age: '1962',
-  email: 'user3@example.com',
+  email: 'hune@sazaesan.com',
   password: 'password',
   admin: false
 )
 
 @user4 = User.create!(
-  name: 'user4',
+  name: '波平',
   gender: '男性',
-  age: '1992',
-  email: 'user4@example.com',
+  age: '1962',
+  email: 'namihei@sazaesan.com',
   password: 'password',
   admin: false
 )
 
 @user5 = User.create!(
-  name: 'user5',
+  name: 'マスオ',
+  gender: '男性',
+  age: '1972',
+  email: 'masuo@sazaesan.com',
+  password: 'password',
+  admin: false
+)
+
+@user6 = User.create!(
+  name: 'ワカメ',
   gender: '女性',
-  age: '1952',
-  email: 'user5@example.com',
+  age: '1995',
+  email: 'wakame@sazaesan.com',
+  password: 'password',
+  admin: false
+)
+
+@user7 = User.create!(
+  name: 'カツオ',
+  gender: '男性',
+  age: '1990',
+  email: 'katsuo@sazaesan.com',
   password: 'password',
   admin: false
 )
 
 @group1 = Group.create!(
-  name: 'dive'
+  name: 'フグ田家'
 )
 
 @group2 = Group.create!(
-  name: 'code'
+  name: '磯野家'
 )
 
 Assign.create!(
@@ -81,6 +99,21 @@ Assign.create!(
 Assign.create!(
   user_id: @user5.id,
   group_id: @group1.id
+)
+
+Assign.create!(
+  user_id: @user6.id,
+  group_id: @group2.id
+)
+
+Assign.create!(
+  user_id: @user7.id,
+  group_id: @group2.id
+)
+
+Assign.create!(
+  user_id: @user1.id,
+  group_id: @group2.id
 )
 
 @quiz = Quiz.create!(
@@ -124,30 +157,3 @@ Answer.create!(
   quiz_id: @quiz.id,
 )  
 
-
-# User.create!(name: 'admin',
-#   email: 'admin1@example.com',
-#   admin: 'true',
-#   encrypted_password: 'password',
-#   reset_password_token: 'password',
-#   gender: "女性",
-#   age: "42"
-# )
-
-# 10.times do |i|
-#   User.create!(name: "user#{i+1}",
-#               email: "test_test#{i+1}@example.com",
-#               encrypted_password: 'password',
-#               reset_password_token: 'password',
-#               gender: "女性",
-#               age: "30#{i+1}"
-#               )
-
-# 10.times do |i|
-#   Answer.create!(user_id: i + 1,
-#               select_answer: "A",
-#               group_id: 1,
-#               quiz_id: 1,
-#               created_at: "2022/12/20",
-#               )  
-# end
