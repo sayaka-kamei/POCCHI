@@ -1,4 +1,4 @@
-<div class="contents-title text-center">
+<div class="contents-title text-center" style="padding-top: 3rem">
 <h3>お気に入りPOCCHI</h3>
 
 <table class="table table-hover table-bordered" style="padding-top: 2rem">
@@ -11,10 +11,10 @@
 
 <% @favorites.each do |favorite| %>
   <tr>
-    <td><%= favorite.answer.user.name %>さん</td> 
-    <td><%= favorite.answer.quiz.title %></td>
+    <td><h6><%= favorite.answer.user.name %>さん</h6></td> 
+    <td><h5><%= favorite.answer.quiz.title %></h5></td>
     <td><%= image_tag favorite.answer.quiz.image.url if favorite.answer.quiz.image.url %></td>
-    <td><%= favorite.answer.select_answer %></td>
+    <td><h3><%= favorite.answer.select_answer %></h3></td>
   </tr>
 <% end %>
 </div>

@@ -1,44 +1,40 @@
 <div class="contents-title text-center">
-<%= form_with(model: answer) do |form| %>
-  <% if answer.errors.any? %>
-    <div id="error_explanation">
-
-      <ul>
-        <% answer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<table>
+  <%= form_with(model: answer) do |form| %>
+    <% if answer.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% answer.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+<div> 
 <table class="table table-hover table-bordered">
   <h5><label for="group_id">グループ名を選択してください</label></h5>
   <h4><%= form.select :group_id, current_user.groups.pluck(:name, :id)%></h4>
 
   <h4><%= @today_quiz.title %></h4>
   <%= image_tag @today_quiz.image.url, :size =>'700x500' %>
-  <h5>解答しましたらグループのみなさんにメールを送ります</h5>
+    <h5>解答しましたらグループのみなさんにメールを送ります</h5>
 
   <%= form.hidden_field :quiz_id, :value => @today_quiz.id %>
-  <tr>
-    <th><h3><%= form.label :select_answer, 'A' %></h3></th>
-    <th><h3><%= form.radio_button :select_answer, 'A' %></h3></th>
+    <tr>
+      <th><h3><%= form.label :select_answer, 'A' %></h3></th>
+      <th><h3><%= form.radio_button :select_answer, 'A' %></h3></th>
 
-    <th><h3><%= form.label :select_answer, 'B' %></h3></th>
-    <th><h3><%= form.radio_button :select_answer, 'B' %></h3></th>
+      <th><h3><%= form.label :select_answer, 'B' %></h3></th>
+      <th><h3><%= form.radio_button :select_answer, 'B' %></h3></th>
 
-    <th><h3><%= form.label :select_answer, 'C' %></h3></th>
-    <th><h3><%= form.radio_button :select_answer, 'C' %></h3></th>
+      <th><h3><%= form.label :select_answer, 'C' %></h3></th>
+      <th><h3><%= form.radio_button :select_answer, 'C' %></h3></th>
 
-    <th><h3><%= form.label :select_answer, 'D' %></h3></th>
-    <th><h3><%= form.radio_button :select_answer, 'D' %></h3></th>
-  
-  
-  <div class="actions" style="padding-:bottom 3rem">
-    <td><h4><%= form.submit "回答する"%></h4></td>
-  </div>
-  </tr>
+      <th><h3><%= form.label :select_answer, 'D' %></h3></th>
+      <th><h3><%= form.radio_button :select_answer, 'D' %></h3></th>
+    
+      <div class="actions" style="padding-:bottom 3rem">
+        <td><h4><%= form.submit "回答する"%></h4></td>
+      </div>
+    </tr>
   <% end %>
-<div>  
 </table> 
