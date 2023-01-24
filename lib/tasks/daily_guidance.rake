@@ -5,3 +5,4 @@ namespace :daily_guidance do
       puts "成功"
     end
 end
+#daily_notificationメソッドを動かし、deliver_nowでメールを送っている
