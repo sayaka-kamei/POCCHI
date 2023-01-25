@@ -39,8 +39,7 @@ https://docs.google.com/spreadsheets/d/1eU6IvNVgRl3oGpX_rPBzn3jyPx5MRm0hkw-Tzzct
 
 ## **ワイヤーフレーム**
 
-<img width="445" alt="スクリーンショット 2022-12-13 18 03 06" src="https://user-images.githubusercontent.com/112692112/207294426-3ba24f44-463e-40be-b22a-a09a6a0f9e01.png">
-
+<img width="326" alt="スクリーンショット 2023-01-25 13 21 43" src="https://user-images.githubusercontent.com/112692112/214479346-cdcd8fb3-5a7b-46c9-aab9-a29769d9a686.png">
 
 ## **ER 図**
 
